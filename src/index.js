@@ -16,6 +16,6 @@ const whiteList=['http://localhost:4201','https://proyectopruebas-5bfd4.web.app'
 app.use(cors({origin: whiteList}));
 
 server.listen(app.get('port'), () => {
-    console.log('Servidor ejecutándose en http://localhost:',app.get('port'));
+    console.log('Servidor ejecutándose en http://localhost: ',app.get('port'));
   });
 
