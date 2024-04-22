@@ -29,6 +29,10 @@ const createSocketServer = (app) => {
       // console.log(`Mensaje recibido: ${data}`);
       io.emit('morefaccion', data);
     });
+    socket.on('taller', (data) => {
+      // console.log(`Mensaje recibido: ${data}`);
+      io.emit('taller', data);
+    });
 
 
     socket.on('disconnect', () => {
