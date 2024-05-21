@@ -13,6 +13,10 @@ const createSocketServer = (app) => {
   io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado');
 
+    socket.on('empresa', (data) => {
+      //manejo de informacion de empresa emicion y recepcion
+      io.emit('empresa', data);
+    });
     socket.on('cliente', (data) => {
       //manejo de informacion de cliente emicion y recepcion
       io.emit('cliente', data);
