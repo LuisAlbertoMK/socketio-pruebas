@@ -5,7 +5,8 @@ const createSocketServer = (app) => {
   const server = http.createServer(app);
   const io = socketIO(server, {
     cors: {
-      origin: ['http://localhost:4201','https://proyectopruebas-5bfd4.web.app'],
+      origin: ['http://localhost:4200','http://localhost:4201',
+      'https://proyectopruebas-5bfd4.web.app','https://speed-pro-desarrollo.web.app'],
       methods: ['GET', 'POST']
     }
   });
