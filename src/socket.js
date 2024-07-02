@@ -46,6 +46,10 @@ const createSocketServer = (app) => {
       //manejo de informacion de OrdenServicio emicion y recepcion
       io.emit('OrdenServicio', data);
     });
+    socket.on('marca', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('marca', data);
+    });
 
 
     socket.on('disconnect', () => {
