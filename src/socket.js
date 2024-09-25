@@ -39,6 +39,7 @@ const createSocketServer = (app) => {
       io.emit('taller', data);
     });
     socket.on('sucursal', (data) => {
+      
       //manejo de informacion de sucursal emicion y recepcion
       io.emit('sucursal', data);
     });
@@ -49,6 +50,31 @@ const createSocketServer = (app) => {
     socket.on('marca', (data) => {
       //manejo de informacion de marca emicion y recepcion
       io.emit('marca', data);
+    });
+    socket.on('indexados_anios', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_anios', data);
+    });
+    socket.on('indexados_empresas', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_empresas', data);
+    });
+    socket.on('indexados_formasPago', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_formasPago', data);
+    });
+    socket.on('indexados_servicios', (data) => {
+      console.log('indexados_servicios', data)
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_servicios', data);
+    });
+    socket.on('indexados_marcas', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_marcas', data);
+    });
+    socket.on('indexados_categorias', (data) => {
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_categorias', data);
     });
 
 
