@@ -1,16 +1,27 @@
 const http = require('http');
-const socketIO = require('socket.io');
-
+// const socketIO = require('socket.io');
+// const httpServer = require('http').createServer(app);
 const createSocketServer = (app) => {
   const server = http.createServer(app);
-  const io = socketIO(server, {
+  // const io = socketIO(server, {
+  //   cors: {
+  //     origin: ['http://localhost:4200','https://speed-pro-desarrollo.web.app'],
+  //     methods: ['GET', 'POST']
+  //   }
+  // });
+
+  const io = require('socket.io')(server, {
     cors: {
-      origin: ['http://localhost:4200','http://localhost:4201',
-      'https://proyectopruebas-5bfd4.web.app','https://speed-pro-desarrollo.web.app'],
-      methods: ['GET', 'POST']
+      origin: [
+        "https://speed-pro-desarrollo.web.app",
+        // Puedes añadir más orígenes si es necesario
+        "http://localhost:4200" // Para desarrollo local
+      ],
+      methods: ["GET", "POST"],
+      credentials: true,
+      allowedHeaders: ["my-custom-header"]
     }
   });
-
   io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado:'+ socket.id);
 
