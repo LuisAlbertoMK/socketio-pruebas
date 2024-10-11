@@ -13,9 +13,7 @@ const createSocketServer = (app) => {
   const io = require('socket.io')(server, {
     cors: {
       origin: [
-        "https://speed-pro-desarrollo.web.app",
-        // Puedes añadir más orígenes si es necesario
-        "http://localhost:4200" // Para desarrollo local
+        "https://speed-pro-desarrollo.web.app", "http://localhost:4200"
       ],
       methods: ["GET", "POST"],
       credentials: true,
