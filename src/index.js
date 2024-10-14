@@ -12,8 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 //configuracion
 app.set('port', config.app.port)
-const whiteList=['http://localhost:4300',
-'https://proyectopruebas-5bfd4.web.app','https://speed-pro-desarrollo.web.app','*'];
+const whiteList=["https://speed-pro-desarrollo.web.app", "http://localhost:4200"];
 app.use(cors({origin: whiteList}));
 
 server.listen(app.get('port'), () => {
