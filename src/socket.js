@@ -23,6 +23,15 @@ const createSocketServer = (app) => {
   io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado:'+ socket.id);
 
+    socket.on('operacion', (data) => {
+      io.emit('operacion', data);
+    });
+    socket.on('g_orden', (data) => {
+      io.emit('g_orden', data);
+    });
+    socket.on('p_orden', (data) => {
+      io.emit('p_orden', data);
+    });
     socket.on('actualizacion', (data) => {
       //manejo de informacion de actualizacion emicion y recepcion
       io.emit('actualizacion', data);
