@@ -1,25 +1,22 @@
 const http = require('http');
-// const socketIO = require('socket.io');
+const socketIO = require('socket.io');
 // const httpServer = require('http').createServer(app);
+
+const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200'];
 const createSocketServer = (app) => {
   const server = http.createServer(app);
-  // const io = socketIO(server, {
-  //   cors: {
-  //     origin: ['http://localhost:4200','https://speed-pro-desarrollo.web.app'],
-  //     methods: ['GET', 'POST']
-  //   }
-  // });
+  const io = socketIO(server,
+    {
 
-  const io = require('socket.io')(server, {
-    cors: {
-      origin: [
-        "https://speed-pro-desarrollo.web.app", "http://localhost:4200"
-      ],
-      methods: ["GET", "POST"],
-      credentials: true,
-      allowedHeaders: ["my-custom-header"]
+      cors: {
+        origin: whiteList,
+        methods: ["GET", "POST"],
+        credentials: true
+      },
+      allowEIO3: true,
     }
-  });
+  );
+
   io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado:'+ socket.id);
 
