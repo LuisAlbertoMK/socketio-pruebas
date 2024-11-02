@@ -87,6 +87,11 @@ const createSocketServer = (app) => {
       //manejo de informacion de marca emicion y recepcion
       io.emit('indexados_servicios', data);
     });
+    socket.on('indexados_sucursales', (data) => {
+      console.log('indexados_sucursales', data)
+      //manejo de informacion de marca emicion y recepcion
+      io.emit('indexados_sucursales', data);
+    });
     socket.on('indexados_marcas', (data) => {
       //manejo de informacion de marca emicion y recepcion
       io.emit('indexados_marcas', data);
