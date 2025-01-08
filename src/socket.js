@@ -49,6 +49,10 @@ const createSocketServer = (app) => {
       //manejo de informacion de tecnico emicion y recepcion
       io.emit('tecnico', data);
     });
+    socket.on('gerente', (data) => {
+      //manejo de informacion de gerente emicion y recepcion
+      io.emit('gerente', data);
+    });
     socket.on('morefaccion', (data) => {
       //manejo de informacion de morefaccion emicion y recepcion
       io.emit('morefaccion', data);
