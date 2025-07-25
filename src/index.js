@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}))
 app.set('port', config.app.port)
 
 
-const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200'];
+const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200','https://apputos.app'];
 
 // Configuración de CORS
 const corsOptions = {
