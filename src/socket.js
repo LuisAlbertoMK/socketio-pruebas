@@ -2,7 +2,7 @@ const http = require('http');
 const socketIO = require('socket.io');
 // const httpServer = require('http').createServer(app);
 
-const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200'];
+const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200','https://apputos.app'];
 const createSocketServer = (app) => {
   const server = http.createServer(app);
   const io = socketIO(server,
