@@ -1,8 +1,8 @@
-
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
-const config = require('./config')
+const { cors: { whitelist }, app: {port} } = require('./config');
 const createSocketServer = require('./socket');
 const app = express()
 const server = createSocketServer();
@@ -11,10 +11,11 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 //configuracion
-app.set('port', config.app.port)
+console.log(port);
+
+app.set('port', port)
 
 
-const whiteList=['https://speed-pro-desarrollo.web.app','http://localhost:4200','https://apputos.app'];
 
 // Configuración de CORS
 const corsOptions = {
@@ -23,8 +24,7 @@ const corsOptions = {
     if (!origin) {
       return callback(null, true);
     }
-    
-    if (whiteList.includes(origin)) {
+    if (whitelist.includes(origin)) {
       callback(null, origin);  // Retornamos el origen específico, no todos
     } else {
       callback(new Error('No permitido por CORS'));
